@@ -1,0 +1,3 @@
+[submodule "erpnext/apps/erpnext"]
+	path = erpnext/apps/erpnext
+	url = git@github.com:LeHoangLong/erpnext.git

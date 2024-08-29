@@ -1,0 +1,5 @@
+2023-09-06 00:35:54,017 - INFO - Running Development Setup
+2023-09-06 00:35:55,705 - INFO - Downloaded frappe_docker zip file from GitHub
+2023-09-06 00:35:55,718 - INFO - Unzipped and Renamed frappe_docker
+2023-09-06 00:35:55,718 - INFO - Removed the downloaded zip file
+2023-09-06 00:35:59,823 - INFO - Development Setup completed

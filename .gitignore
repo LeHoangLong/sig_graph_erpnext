@@ -1,0 +1,10 @@
+node_modules
+venv
+data
+data/**
+mariadb
+env
+logs
+locks
+.test_log
+config/*

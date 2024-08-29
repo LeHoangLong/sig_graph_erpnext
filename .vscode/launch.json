@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Bench",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/erpnext/apps/frappe/frappe/utils/bench_helper.py",
+      "args": [
+        "frappe",
+        "serve",
+        "--noreload",
+        "--nothreading"
+      ],
+      "pythonPath": "${workspaceFolder}/erpnext/env/bin/python",
+      "cwd": "${workspaceFolder}/erpnext/sites",
+      "env": {
+        "DEV_SERVER": "1"
+      },
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
