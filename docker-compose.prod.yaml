@@ -38,8 +38,9 @@ services:
     container_name: erpnext-demo
     hostname: erpnext-demo
     volumes:
-      - ./docker-sites/common_site_config.json:/home/frappe/erpnext/erpnext/sites/common_site_config.json
+      - ./docker-sites:/home/frappe/erpnext/erpnext/sites
       - ./demo:/home/frappe/erpnext/demo
+      - ./new-site.sh:/home/frappe/erpnext/new-site.sh
     networks:
       - erpnext-network
     user: frappe
