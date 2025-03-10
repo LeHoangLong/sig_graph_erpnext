@@ -18,3 +18,8 @@ services:
       - MARIADB_DATABASE=root
     ports:
       - 3306:3306
+  # erpnext:
+  #   image: python:3.10.16-slim-bookworm
+  #   volumes:
+  #     - ./:/root/temp
+  #   command: sleep infinity

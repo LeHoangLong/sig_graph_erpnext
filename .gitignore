@@ -8,3 +8,9 @@ logs
 locks
 .test_log
 config/*
+docker-sites/*
+!docker-sites/.keep
+!docker-sites/common_site_config.json
+erpnext/sites/*
+docker-data
+docker-redis

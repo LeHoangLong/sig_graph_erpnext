@@ -18,6 +18,48 @@
         "DEV_SERVER": "1"
       },
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "User 2",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/erpnext/apps/frappe/frappe/utils/bench_helper.py",
+      "args": [
+        "frappe",
+        "serve",
+        "--port",
+        "8082",
+        "--noreload",
+        "--nothreading"
+      ],
+      "pythonPath": "${workspaceFolder}/erpnext/env/bin/python",
+      "cwd": "${workspaceFolder}/erpnext/sites",
+      "env": {
+        "DEV_SERVER": "1",
+		    "FRAPPE_SITE": "user2"
+      },
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "User 3",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/erpnext/apps/frappe/frappe/utils/bench_helper.py",
+      "args": [
+        "frappe",
+        "serve",
+        "--port",
+        "8083",
+        "--noreload",
+        "--nothreading"
+      ],
+      "pythonPath": "${workspaceFolder}/erpnext/env/bin/python",
+      "cwd": "${workspaceFolder}/erpnext/sites",
+      "env": {
+        "DEV_SERVER": "1",
+		    "FRAPPE_SITE": "user3"
+      },
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
