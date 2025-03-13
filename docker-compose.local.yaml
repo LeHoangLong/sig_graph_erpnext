@@ -1,0 +1,61 @@
+version: '3.0'
+services:
+  nginx:
+    image: nginx:1.23.3
+    container_name: erpnext-router
+    ports:
+      - "8090:80"  # Expose port 80 for HTTP traffic
+    volumes:
+      - ./demo/nginx.conf:/etc/nginx/nginx.conf  # Mount custom NGINX configuration
+    networks:
+      erpnext-network:
+        aliases:
+          - erpnext-router
+          - producer.erpnext.siggraph.io
+          - distributor.erpnext.siggraph.io
+          - retailer.erpnext.siggraph.io
+
+  redis:
+    image: redis:7.2.0-alpine
+    hostname: redis
+    volumes:
+      - ./docker-redis:/usr/local//etc/redis
+    ports:
+      - 6381:6379
+    networks:
+      - erpnext-network
+  db:
+    image: mariadb:10.6.15-focal
+    hostname: db
+    volumes: 
+      - ./docker-data/db:/var/lib/mysql
+      - ./docker-mariadb/config:/etc/mysql/conf.d
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=root
+    ports:
+      - 3307:3306
+    networks:
+      - erpnext-network
+
+  erpnext-demo:
+    image: siggraph/erpnext:1.0.2  # Replace with your actual producer app image
+    container_name: erpnext-demo
+    hostname: erpnext-demo
+    volumes:
+      - ./docker-sites:/home/frappe/erpnext/erpnext/sites
+      - ./demo:/home/frappe/erpnext/demo
+      - ./demo/.env-producer-local:/home/frappe/erpnext/demo/.env-producer
+      - ./demo/.env-distributor-local:/home/frappe/erpnext/demo/.env-distributor
+      - ./demo/.env-retailer-local:/home/frappe/erpnext/demo/.env-retailer
+      - ./new-site.sh:/home/frappe/erpnext/new-site.sh
+    networks:
+      - erpnext-network
+    user: frappe
+    working_dir: /home/frappe/erpnext
+    command: bash -c "source ./demo/run-demo.sh && sleep infinity"
+    #command: sleep infinity
+
+networks:
+  erpnext-network:
+    driver: bridge
