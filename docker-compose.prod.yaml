@@ -39,7 +39,7 @@ services:
       - erpnext-network
 
   erpnext-demo:
-    image: siggraph/erpnext:1.0.2  # Replace with your actual producer app image
+    image: asia-southeast1-docker.pkg.dev/siggraph-453519/erpnext/erpnext:latest
     container_name: erpnext-demo
     hostname: erpnext-demo
     volumes:
