@@ -1,19 +1,5 @@
 version: '3.0'
 services:
-  nginx:
-    image: nginx:1.23.3
-    container_name: erpnext-router
-    ports:
-      - "8090:80"  # Expose port 80 for HTTP traffic
-    volumes:
-      - ./demo/nginx.conf:/etc/nginx/nginx.conf  # Mount custom NGINX configuration
-    networks:
-      erpnext-network:
-        aliases:
-          - erpnext-router
-          - producer.erpnext.siggraph.io
-          - distributor.erpnext.siggraph.io
-          - retailer.erpnext.siggraph.io
 
   redis:
     image: redis:7.2.0-alpine
