@@ -42,3 +42,4 @@ services:
 networks:
   erpnext-network:
     driver: bridge
+    name: erpnext-network
