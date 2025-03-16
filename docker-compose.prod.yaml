@@ -17,7 +17,7 @@ services:
       - ./docker-data/db:/var/lib/mysql
       - ./docker-mariadb/config:/etc/mysql/conf.d
     environment:
-      - MARIADB_ROOT_PASSWORD=${ERPNEXT_ROOT_DB_PASSOWRD}
+      - MARIADB_ROOT_PASSWORD=${ERPNEXT_ROOT_DB_PASSWORD}
       - MARIADB_DATABASE=root
     ports:
       - 3307:3306
@@ -29,7 +29,9 @@ services:
     container_name: erpnext-demo
     hostname: erpnext-demo
     volumes:
-      - ./docker-sites:/home/frappe/erpnext/erpnext/sites
+      - ./docker-sites/apps.json:/home/frappe/erpnext/erpnext/sites/apps.json
+      - ./docker-sites/apps.txt:/home/frappe/erpnext/erpnext/sites/apps.txt
+      - ./docker-sites/common_site_config.json:/home/frappe/erpnext/erpnext/sites/common_site_config.json
       - ./demo:/home/frappe/erpnext/demo
       - ./new-site.sh:/home/frappe/erpnext/new-site.sh
     networks:
