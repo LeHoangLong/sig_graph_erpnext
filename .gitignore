@@ -11,6 +11,7 @@ config/*
 docker-sites/*
 !docker-sites/.keep
 !docker-sites/common_site_config.json
+!docker-sites/assets
 !docker-sites/apps.txt
 !docker-sites/apps.json
 erpnext/sites/*
