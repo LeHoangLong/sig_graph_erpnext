@@ -7,11 +7,6 @@ services:
     hostname: erpnext-demo
     volumes:
       - ./docker-sites:/home/frappe/erpnext/erpnext/sites
-      - ./demo:/home/frappe/erpnext/demo
-      - ./demo/.env-producer-local:/home/frappe/erpnext/demo/.env-producer
-      - ./demo/.env-distributor-local:/home/frappe/erpnext/demo/.env-distributor
-      - ./demo/.env-retailer-local:/home/frappe/erpnext/demo/.env-retailer
-      - ./new-site.sh:/home/frappe/erpnext/new-site.sh
     networks:
       - erpnext-network
     user: frappe
